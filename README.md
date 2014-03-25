@@ -1,6 +1,6 @@
 # google
 
-Query Google easily and quickly from the terminal.
+`google` is a command line utility to query Google easily and quickly from the terminal.
 
 ## Installation
 
@@ -16,9 +16,7 @@ You can verify that `google` was installed correctly:
 google -h
 ~~~
 
-## Usage
-
-After installing the command line utility, 
+## Usage 
 
 `google` is simple to use, no flags, no options. Just `google querystring`. 
 

@@ -28,7 +28,7 @@ func main() {
 			case "linux":
 				cmd = exec.Command("xdg-open", "https://google.com/#q="+s)
 			case "windows":
-				cmd = exec.Command("start", "https://google.com/#q="+s)
+				cmd = exec.Command("cmd", "/c", "start", "https://google.com/#q="+s)
 			case "darwin":
 				cmd = exec.Command("open", "https://google.com/#q="+s)
 			default:

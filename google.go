@@ -37,8 +37,7 @@ func main() {
 
 	}
 
-	err := cmd.Start()
-	if err != nil {
+	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
 

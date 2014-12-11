@@ -9,23 +9,29 @@ import (
 	"fmt"
 	"log"
 	"net/url"
+	"os"
 	"os/exec"
 	"runtime"
 	"strings"
 )
 
 func main() {
-
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "usage: %s [query]\n\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "example: %s who is yoda?\n\n", os.Args[0])
+		os.Exit(2)
+	}
 	flag.Parse()
 
-	// If the number of arguments is zero, exit the main() function.
 	if flag.NArg() == 0 {
-		fmt.Println(`give a search query, e.g. "google hello world" `)
-		return
+		flag.Usage()
 	}
 
-	s := strings.Join(flag.Args(), "+") // concatenate the args with '+'
-	fmt.Println("let me google", s)
+	fmt.Printf("Googling %q\n", strings.Join(flag.Args(), " "))
+	fmt.Printf("A browser window should open. If a window is already open, please visit it!\n\n")
+
+	// concatenate the args with '+' to append them to URL
+	s := strings.Join(flag.Args(), "+")
 
 	link, err := url.Parse("https://google.com/#q=" + s)
 	if err != nil {
@@ -50,5 +56,4 @@ func main() {
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
-
 }

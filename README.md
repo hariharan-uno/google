@@ -1,6 +1,7 @@
 # google
 
 `google` is a command line utility to query Google easily and quickly from the terminal.
+The `google` command opens a browser window with the google results webpage of the given search query.
 
 ## Installation
 
